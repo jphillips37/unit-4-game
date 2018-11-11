@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+
+    <title> Star Wars RPG Game</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+    <header class="nav justify-content-end">
+        <h1>Star Wars RPG!</h1>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="pic start" id="yoda">
+                    <p class="name" id="yoda">Yoda</p>
+                    <img src="assets/images/yoda.jpg">
+                    <p class="hp" id="yodaHp">75</p>
+                </div>
+                <div class="pic start" id="fett">
+                    <p class="name" id="fett">Boba Fett</p>
+                    <img src="assets/images/fett.jpg">
+                    <p class="hp" id="fettHp">100</p>
+                </div>
+                <div class="pic start" id="vader">
+                    <p class="name" id="vader">Darth Vader</p>
+                    <img src="assets/images/vader.jpg">
+                    <p class="hp" id="vaderHp">150</p>
+                </div>
+                <div class="pic start" id="maul">
+                    <p class="name" id="maul">Darth Maul</p>
+                    <img src="assets/images/maul.jpg">
+                    <p class="hp" id="maulHp">125</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                    <h2>Your Character</h2>
+            </div>
+        </div>
+
+        <div class="row attacker">
+            <div class="col">
+                <div class="pic attacker" id="yoda">
+                    <p class="name" id="yoda">Yoda</p>
+                    <img src="assets/images/yoda.jpg">
+                    <p class="hp" id="yodaHp">75</p>
+                </div>
+                <div class="pic attacker" id="fett">
+                    <p class="name" id="fett">Boba Fett</p>
+                    <img src="assets/images/fett.jpg">
+                    <p class="hp" id="fettHp">100</p>
+                </div>
+                <div class="pic attacker" id="vader">
+                    <p class="name" id="vader">Darth Vader</p>
+                    <img src="assets/images/vader.jpg">
+                    <p class="hp" id="vaderHp">150</p>
+                </div>
+                <div class="pic attacker" id="maul">
+                    <p class="name" id="maul">Darth Maul</p>
+                    <img src="assets/images/maul.jpg">
+                    <p class="hp" id="maulHp">125</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h2>Enemies Available to Attack</h2>
+            </div>
+        </div>
+
+        <div class="row enemies">
+            <div class="col">
+                <div class="pic enemies" id="yoda">
+                    <p class="name" id="yoda">Yoda</p>
+                    <img src="assets/images/yoda.jpg">
+                    <p class="hp" id="yodaHp">75</p>
+                </div>
+                <div class="pic enemies" id="fett">
+                    <p class="name" id="fett">Boba Fett</p>
+                    <img src="assets/images/fett.jpg">
+                    <p class="hp" id="fettHp">100</p>
+                </div>
+                <div class="pic enemies" id="vader">
+                    <p class="name" id="vader">Darth Vader</p>
+                    <img src="assets/images/vader.jpg">
+                    <p class="hp" id="vaderHp">150</p>
+                </div>
+                <div class="pic enemies" id="maul">
+                    <p class="name" id="maul">Darth Maul</p>
+                    <img src="assets/images/maul.jpg">
+                    <p class="hp" id="maulHp">125</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h2>Fight Section</h2> 
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-danger">Attack!</button>
+
+        <div class="row">
+            <div class="col">
+                <h2>Defender</h2>
+            </div>
+        </div>
+
+        <div class="row defender">
+            <div class="col">
+                <div class="pic defender yoda">
+                    <p class="name" id="yoda">Yoda</p>
+                    <img src="assets/images/yoda.jpg">
+                    <p class="hp" id="yodaHp">75</p>
+                </div>
+                <div class="pic defender fett">
+                    <p class="name" id="fett">Boba Fett</p>
+                    <img src="assets/images/fett.jpg">
+                    <p class="hp" id="fettHp">100</p>
+                </div>
+                <div class="pic defender vader">
+                    <p class="name" id="vader">Darth Vader</p>
+                    <img src="assets/images/vader.jpg">
+                    <p class="hp" id="vaderHp">150</p>
+                </div>
+                <div class="pic defender maul">
+                    <p class="name" id="maul">Darth Maul</p>
+                    <img src="assets/images/maul.jpg">
+                    <p class="hp" id="maulHp">125</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="assets/js/swgame.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
