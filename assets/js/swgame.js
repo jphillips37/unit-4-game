@@ -20,8 +20,23 @@ $(".defender, .enemies, .attacker").hide();
 
 // document.getElementsByClassName("your-char").style.visibility = "hidden";
 
-$(".pic").on("click", function()    {
+$(".pic").on("click", function()    { // no attacker has been chosen, the first click will be the attacking fighter
     if (attacker == null) {
-        attackerName = 
+        attackerName = $(this).attr("value");
+        attacker = 1;
+        $(".start").hide();
+        $("#attack"+attackerName).show();
+        $(".enemies").show();
+        $("#enemy"+attackerName).hide();
+
     }
+    else if (defenderName == null) {
+        defenderName = $(this).attr("value");
+        defender = 1;
+        $("#enemy"+defenderName).hide();
+        $("#defender"+defenderName).show();
+    }
+    else{
+
+    };
 })
