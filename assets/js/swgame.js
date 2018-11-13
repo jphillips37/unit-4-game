@@ -77,8 +77,10 @@ $(".btn-danger").on("click", function() {
 
     if (activeAttacker.hp > 0 && activeDefender.hp > 0) {
         activeDefender.hp = activeDefender.hp - activeAttacker.ap;  // attacker damages defender
+        console.log(activeDefender.hp);
+        console.log(fighterArray);
         $("#defender"+activeDefender.name+"Hp").text(activeDefender.hp);
-        activeAttacker.ap = parseInt(activeAttacker.ap) + parseInt(baseAp);     // attacker ap increases by base AP amount
+        activeAttacker.ap = parseInt(activeAttacker.ap) + parseInt(baseAp);  // attacker ap increases by base AP amount
         console.log(activeAttacker.ap)
 
         if (activeDefender.hp > 0) {
@@ -95,6 +97,9 @@ $(".btn-danger").on("click", function() {
             defenderName = null;
         }
     }
+    // if ($("#enemyYoda").is(":hidden") && $("#enemyFett").is(":hidden") && $("#enemyVader").is(":hidden") && $("#enemyMaul").is(":hidden")) {
+    //     alert("hidden");  this seems like too much code to check for visibility of each fighter
+    //}
 })
 $(".btn-secondary").on("click", function() {
     attacker = null;
@@ -109,5 +114,7 @@ $(".btn-secondary").on("click", function() {
     for (i = 0; i < fighterArray.length; i++) {
         $("#attack"+fighterArray[i].name+"Hp").text(fighterArray[i].hp);
         $("#defender"+fighterArray[i].name+"Hp").text(fighterArray[i].hp);
+        console.log("#attack"+fighterArray[i].name+"Hp");
+        console.log(fighterArray[i].hp);
     }
 })
