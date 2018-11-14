@@ -5,12 +5,19 @@ class fighter {
       this.ap = ap;
       this.cap = cap;
     }
+    clone(){
+        var cloneFighter = [this.name, this.hp, this.ap, this.cap];
+        return cloneFighter;
+    }
 }
 
 let yoda = new fighter("Yoda", "75", "10", "12");
 let fett = new fighter("Fett", "100", "8", "9");
 let vader = new fighter("Vader", "150", "5", "6");
 let maul = new fighter("Maul", "125", "6", "7");
+
+console.log(yoda.clone());
+console.log(yoda);
 
 let fighterArray = [ // put fighters in an array to make it easier to chose one of them later
     yoda,
@@ -26,6 +33,7 @@ var defenderName;
 var activeAttacker;
 var activeDefender;
 var baseAp;
+var defendersRemaining = 3;
 $(".defender, .enemies, .attacker").hide();
 
 // document.getElementsByClassName("your-char").style.visibility = "hidden";
@@ -41,8 +49,9 @@ $(".pic").on("click", function() { // no attacker has been chosen, the first cli
 
         for (var i = 0; i < fighterArray.length; i++) {  // selects the attacker object
             if(fighterArray[i].name == attackerName) {
-                activeAttacker = fighterArray[i];
-                baseAp = activeAttacker.ap;
+                activeAttacker = fighterArray[i].clone();
+                console.log(activeAttacker[1]);
+                baseAp = activeAttacker[2];
                 break;
             }
         }
@@ -60,7 +69,7 @@ $(".pic").on("click", function() { // no attacker has been chosen, the first cli
             
             for (var i = 0; i < fighterArray.length; i++) { // selects the defender object
                 if(fighterArray[i].name == defenderName) {
-                    activeDefender = fighterArray[i];
+                    activeDefender = fighterArray[i].clone();
                     break;
                 }
             }
@@ -72,29 +81,34 @@ $(".pic").on("click", function() { // no attacker has been chosen, the first cli
 })
 
 $(".btn-danger").on("click", function() {
-    console.log(activeAttacker.name);
-    console.log(activeDefender.name);
+    // console.log(activeAttacker[0]);
+    // console.log(activeDefender[0]);
 
-    if (activeAttacker.hp > 0 && activeDefender.hp > 0) {
-        activeDefender.hp = activeDefender.hp - activeAttacker.ap;  // attacker damages defender
-        console.log(activeDefender.hp);
-        console.log(fighterArray);
-        $("#defender"+activeDefender.name+"Hp").text(activeDefender.hp);
-        activeAttacker.ap = parseInt(activeAttacker.ap) + parseInt(baseAp);  // attacker ap increases by base AP amount
-        console.log(activeAttacker.ap)
+    if (activeAttacker[1] > 0 && activeDefender[1] > 0) {
+        activeDefender[1] = activeDefender[1] - activeAttacker[2];  // attacker damages defender
+        // console.log(activeDefender[1]);
+        // console.log(fighterArray);
+        $("#defender"+activeDefender[0]+"Hp").text(activeDefender[1]);
+        activeAttacker[2] = parseInt(activeAttacker[2]) + parseInt(baseAp);  // attacker ap increases by base AP amount
+        // console.log(activeAttacker[2])
 
-        if (activeDefender.hp > 0) {
-            activeAttacker.hp = activeAttacker.hp - activeDefender.cap; // attacker hp decreases by defender cap value
-            $("#attack"+activeAttacker.name+"Hp").text(activeAttacker.hp);
-            if (activeAttacker.hp <= 0 || activeDefender.hp <= 0) {
-                if (activeAttacker.hp <= 0) {
+        if (activeDefender[1] > 0) {
+            activeAttacker[1] = activeAttacker[1] - activeDefender[3]; // attacker hp decreases by defender cap value
+            $("#attack"+activeAttacker[0]+"Hp").text(activeAttacker[1]);
+            if (activeAttacker[1] <= 0 || activeDefender[1] <= 0) {
+                if (activeAttacker[1] <= 0) {
                     alert("You Lose");
                 }
             }
         }
         else {
             $("#defender"+defenderName).hide();
+            defendersRemaining--;
             defenderName = null;
+            console.log(defendersRemaining);
+            if (defendersRemaining == 0) {
+                alert("You Win!");
+            }
         }
     }
     // if ($("#enemyYoda").is(":hidden") && $("#enemyFett").is(":hidden") && $("#enemyVader").is(":hidden") && $("#enemyMaul").is(":hidden")) {
@@ -109,8 +123,9 @@ $(".btn-secondary").on("click", function() {
     activeAttacker = null;
     activeDefender = null;
     baseAp = null;
-    // $(".defender, .enemies, .attacker").hide();
-    // $(".start").show();
+    defendersRemaining = 3;
+    $(".defender, .enemies, .attacker").hide();
+    $(".start").show();
     for (i = 0; i < fighterArray.length; i++) {
         $("#attack"+fighterArray[i].name+"Hp").text(fighterArray[i].hp);
         $("#defender"+fighterArray[i].name+"Hp").text(fighterArray[i].hp);
