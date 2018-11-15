@@ -6,7 +6,7 @@ class fighter {
       this.cap = cap;
     }
     clone(){
-        var cloneFighter = [this.name, this.hp, this.ap, this.cap];
+        var cloneFighter = [this.name, this.hp, this.ap, this.cap];  // this should have been defined as a new object instead of an array. Now i'm too lazy to change everything else back to make it work as an object
         return cloneFighter;
     }
 }
@@ -81,16 +81,12 @@ $(".pic").on("click", function() { // no attacker has been chosen, the first cli
 })
 
 $(".btn-danger").on("click", function() {
-    // console.log(activeAttacker[0]);
-    // console.log(activeDefender[0]);
 
     if (activeAttacker[1] > 0 && activeDefender[1] > 0) {
         activeDefender[1] = activeDefender[1] - activeAttacker[2];  // attacker damages defender
-        // console.log(activeDefender[1]);
-        // console.log(fighterArray);
+        
         $("#defender"+activeDefender[0]+"Hp").text(activeDefender[1]);
         activeAttacker[2] = parseInt(activeAttacker[2]) + parseInt(baseAp);  // attacker ap increases by base AP amount
-        // console.log(activeAttacker[2])
 
         if (activeDefender[1] > 0) {
             activeAttacker[1] = activeAttacker[1] - activeDefender[3]; // attacker hp decreases by defender cap value
@@ -105,7 +101,6 @@ $(".btn-danger").on("click", function() {
             $("#defender"+defenderName).hide();
             defendersRemaining--;
             defenderName = null;
-            console.log(defendersRemaining);
             if (defendersRemaining == 0) {
                 alert("You Win!");
             }
@@ -123,13 +118,11 @@ $(".btn-secondary").on("click", function() {
     activeAttacker = null;
     activeDefender = null;
     baseAp = null;
-    defendersRemaining = 3;
+    defendersRemaining = 3;  // after the first fighter is chosen, there will always be 3 fighters to defeat
     $(".defender, .enemies, .attacker").hide();
     $(".start").show();
     for (i = 0; i < fighterArray.length; i++) {
         $("#attack"+fighterArray[i].name+"Hp").text(fighterArray[i].hp);
         $("#defender"+fighterArray[i].name+"Hp").text(fighterArray[i].hp);
-        console.log("#attack"+fighterArray[i].name+"Hp");
-        console.log(fighterArray[i].hp);
     }
 })
