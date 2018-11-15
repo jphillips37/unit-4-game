@@ -11,10 +11,10 @@ class fighter {
     }
 }
 
-let yoda = new fighter("Yoda", "75", "10", "12");
-let fett = new fighter("Fett", "100", "8", "9");
-let vader = new fighter("Vader", "150", "5", "6");
-let maul = new fighter("Maul", "125", "6", "7");
+let yoda = new fighter("Yoda", "75", "10", "16");
+let fett = new fighter("Fett", "95", "8", "15");
+let vader = new fighter("Vader", "110", "6", "10");
+let maul = new fighter("Maul", "105", "7", "14");
 
 console.log(yoda.clone());
 console.log(yoda);
